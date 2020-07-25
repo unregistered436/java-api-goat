@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                wrap([$class: 'VeracodeInteractiveBuildWrapper', location: 'host.docker.internal', port: '10010']) {
+                wrap([$class: 'VeracodeInteractiveBuildWrapper', location: 'iast-jenkins.pmcneil.sa.veracode.io', port: '10010']) {
                     sh 'curl -sSL https://s3.us-east-2.amazonaws.com/app.veracode-iast.io/iast-ci.sh | sh'
                     sh 'mvn --debug test'
                 }
